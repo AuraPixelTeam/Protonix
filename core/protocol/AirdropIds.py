@@ -18,6 +18,12 @@ class AirdropIds:
         "username": "CryptoRank_app_bot",
         "app_web_view": False
     }
+    TOMARKET = {
+        "site": "https://mini-app.tomarket.ai/",
+        "short_name": "Tomarket App",
+        "username": "Tomarket_ai_bot",
+        "app_web_view": False
+    }
     THEYESCOIN = {
         "site": "https://www.yescoin.gold/",
         "short_name": "Yescoin",
