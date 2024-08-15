@@ -4,8 +4,6 @@ import time
 import psutil
 import logging
 
-from .Worker import Worker
-
 
 class WorkerManager:
     def __init__(self, max_threads=5, max_memory_usage=None, max_cpu_usage=None, retry_limit=3):
@@ -17,8 +15,6 @@ class WorkerManager:
         self.threads = []
         self.lock = threading.Lock()
         self.stop_event = threading.Event()
-
-        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     def worker(self):
         while not self.stop_event.is_set():
@@ -52,7 +48,7 @@ class WorkerManager:
 
     def start_threads(self):
         for _ in range(self.max_threads):
-            thread = Worker(target=self.worker)
+            thread = threading.Thread(target=self.worker)
             thread.start()
             self.threads.append(thread)
 

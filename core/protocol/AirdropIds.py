@@ -1,7 +1,7 @@
 class AirdropIds:
 
     BLUM = {
-        "site": "https://telegram.blum.codes",
+        "site": "https://telegram.blum.codes/",
         "short_name": "Blum",
         "username": "BlumCryptoBot",
         "app_web_view": False

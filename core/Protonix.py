@@ -7,6 +7,7 @@ from .worker.WorkerManager import WorkerManager
 from .telegram.Telegram import Telegram
 from rich.console import Console
 from .utils.System import get_hwid
+from urllib.parse import unquote
 
 
 class Protonix:
@@ -83,6 +84,6 @@ class Protonix:
             auth_url = web_view.url
             await client.disconnect()
 
-            return auth_url.split('tgWebAppData=', maxsplit=1)[1].split('&tgWebAppVersion', maxsplit=1)[0]
+            return unquote(auth_url.split('tgWebAppData=', maxsplit=1)[1].split('&tgWebAppVersion', maxsplit=1)[0])
         except:
             pass
