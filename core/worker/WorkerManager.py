@@ -25,7 +25,7 @@ class WorkerManager:
                 task, args, kwargs = item
 
                 retry_count = 0
-                while retry_count < self.retry_limit:
+                while True:
                     try:
                         while not self.check_resources() and not self.stop_event.is_set():
                             time.sleep(1)
